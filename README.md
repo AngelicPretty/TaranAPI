@@ -20,7 +20,9 @@ This Python tool is designed to retrieve phone numbers, Tencent, and Weibo infor
 Features
 
 ● Retrieves phone numbers from various social media platforms.
+
 ● Gathers Tencent-related information across social media.
+
 ● Collects Weibo information associated with the provided details.
 
 # Contributing
