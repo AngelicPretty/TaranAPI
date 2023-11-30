@@ -1,0 +1,91 @@
+"""
+accessory module used to design and color the output text for pretty terminal
+output.
+"""
+logo_art = """
+ _______                             _______         __
+|_     _|.---.-..----..---.-..-----.|   _   |.-----.|__|
+  |   |  |  _  ||   _||  _  ||     ||       ||  _  ||  |
+  |___|  |___._||__|  |___._||__|__||___|___||   __||__|
+                                             |__|
+"""
+
+ascii_art = """
+ _______                             _______         __
+|_     _|.---.-..----..---.-..-----.|   _   |.-----.|__|
+  |   |  |  _  ||   _||  _  ||     ||       ||  _  ||  |
+  |___|  |___._||__|  |___._||__|__||___|___||   __||__|
+                                             |__|
+
+
+.+++++++++++++++++++++++++++++++++++++++++++++++++.
+ *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*
+  #@@@@@==================================%@@@@@%.
+  .@@@@@*                                -@@@@@@:
+   -@@@@@:                              .%@@@@@=
+    +@@@@%                              +@@@@@*
+     -----:                            .::::::
+          .:.........                 .:
+                 :@@%.       :@%%-::...
+                  +@@+       #%.   :
+                   %@@:     -@=   :.
+                   :@@#    .%@#=::.
+                    *@@=   +@:   :
+                    .%@@. :@*   ::
+                     -@@* #@=   ::
+                      *@@*@@- .:
+                      .%@@@+.:.
+                       -@@#:.
+                        *@#
+
+
+"""
+def start(banner: str, delay=0.2):
+    """
+    Parameters:
+        banner
+        delay=0.2
+    """
+    # import random
+    from time import sleep
+    from rich import print as rprint
+
+    for line in banner.split("\n"):
+        for character in line:
+            if character in ["#", "@", "%", "&"]:
+                rprint(f"[yellow]{character}", end="", flush=True)
+            else:
+                rprint(f"[bright_red]{character}", end="", flush=True)
+        print()
+    sleep(delay)
+
+def logo(banner: str):
+    """
+    Parameters:
+        logo
+    """
+    # import random
+    from rich import print as rprint
+
+    for line in banner.split("\n"):
+        for character in line:
+            if character in ["#", "@", "%", "&"]:
+                rprint(f"[yellow]{character}", end="", flush=True)
+            else:
+                rprint(f"[bright_red]{character}", end="", flush=True)
+        print()
+
+
+class Notify:
+	"A helper class for notifications of TaranAPI process"
+
+	@staticmethod
+	def start():
+		start(ascii_art, delay=2)
+
+	@staticmethod
+	def logo():
+		logo(logo_art)
+
+if __name__ == "__main__":
+	start(ascii_art)
